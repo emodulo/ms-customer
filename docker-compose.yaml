@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  ms-customer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ms-customer
+    ports:
+      - 8080:8080
+    env_file:
+      - .env
+    networks:
+      - eModulo-network
+    depends_on:
+      - mongo-db
+
+  mongo-db:
+    image: mongo:6.0
+    container_name: ms-customer-db
+    ports:
+      - 27017:27017
+    env_file:
+      - .env
+    networks:
+      - eModulo-network
+    environment:
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+
+networks:
+  eModulo-network:

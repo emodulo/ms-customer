@@ -1,0 +1,19 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: ${APP_NAME}
+  data:
+    mongodb:
+      authentication-database: ${MONGO_HOST}
+      auto-index-creation: ${MONGO_AUTO_INDEX}
+      host: ${MONGO_HOST}
+      port: ${MONGO_PORT}
+      database: ${MONGO_DATABASE}
+      username: ${MONGO_USERNAME}
+      password: ${MONGO_PASSWORD}
+server:
+  port: ${APP_PORT}
+
+
+
