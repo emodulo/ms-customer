@@ -1,6 +1,6 @@
-package br.com.emodulo.ms_customer.application.dto;
+package br.com.emodulo.customer.application.dto;
 
-import br.com.emodulo.ms_customer.domain.entity.Customer;
+import br.com.emodulo.customer.domain.entity.Customer;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import java.util.UUID;

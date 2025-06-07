@@ -1,8 +1,7 @@
-package br.com.emodulo.ms_customer.domain.entity;
+package br.com.emodulo.customer.domain.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.util.UUID;

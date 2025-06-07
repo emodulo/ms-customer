@@ -1,9 +1,9 @@
-package br.com.emodulo.ms_customer.application.controller;
+package br.com.emodulo.customer.application.controller;
 
 
-import br.com.emodulo.ms_customer.application.dto.CustomerDTO;
-import br.com.emodulo.ms_customer.domain.entity.Customer;
-import br.com.emodulo.ms_customer.domain.usecase.IAddCustomerUseCase;
+import br.com.emodulo.customer.application.dto.CustomerDTO;
+import br.com.emodulo.customer.domain.entity.Customer;
+import br.com.emodulo.customer.domain.usecase.IAddCustomerUseCase;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

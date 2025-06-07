@@ -1,12 +1,11 @@
-package br.com.emodulo.ms_customer.infra;
+package br.com.emodulo.customer.infra;
 
-import br.com.emodulo.ms_customer.domain.entity.Customer;
-import br.com.emodulo.ms_customer.domain.repository.ICustomerDatabaseAdapter;
+import br.com.emodulo.customer.domain.entity.Customer;
+import br.com.emodulo.customer.domain.repository.ICustomerDatabaseAdapter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor

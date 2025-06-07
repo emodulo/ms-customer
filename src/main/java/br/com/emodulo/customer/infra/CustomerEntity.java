@@ -1,4 +1,4 @@
-package br.com.emodulo.ms_customer.infra;
+package br.com.emodulo.customer.infra;
 
 
 import lombok.Getter;
@@ -16,11 +16,11 @@ public class CustomerEntity {
     @MongoId()
     private UUID id;
     private String name;
-    private String Document;
+    private String document;
 
     public CustomerEntity(UUID id, String name, String document) {
         this.id = id;
         this.name = name;
-        Document = document;
+        document = document;
     }
 }

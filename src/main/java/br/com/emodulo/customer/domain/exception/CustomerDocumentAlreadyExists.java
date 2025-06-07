@@ -1,4 +1,4 @@
-package br.com.emodulo.ms_customer.domain.exception;
+package br.com.emodulo.customer.domain.exception;
 
 public class CustomerDocumentAlreadyExists extends Exception {
     public CustomerDocumentAlreadyExists(String message) {

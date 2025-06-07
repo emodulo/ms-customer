@@ -1,4 +1,4 @@
-package br.com.emodulo.ms_customer;
+package br.com.emodulo.customer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,9 +1,9 @@
-package br.com.emodulo.ms_customer.application.usecase;
+package br.com.emodulo.customer.application.usecase;
 
-import br.com.emodulo.ms_customer.domain.entity.Customer;
-import br.com.emodulo.ms_customer.domain.exception.CustomerDocumentAlreadyExists;
-import br.com.emodulo.ms_customer.domain.repository.ICustomerDatabaseAdapter;
-import br.com.emodulo.ms_customer.domain.usecase.IAddCustomerUseCase;
+import br.com.emodulo.customer.domain.entity.Customer;
+import br.com.emodulo.customer.domain.exception.CustomerDocumentAlreadyExists;
+import br.com.emodulo.customer.domain.repository.ICustomerDatabaseAdapter;
+import br.com.emodulo.customer.domain.usecase.IAddCustomerUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
