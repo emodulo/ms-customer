@@ -1,4 +1,4 @@
-package br.com.emodulo.customer.domain.entity;
+package br.com.emodulo.customer.domain.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

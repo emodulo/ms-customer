@@ -1,4 +1,4 @@
-package br.com.emodulo.customer.infra;
+package br.com.emodulo.customer.adapter.out.database.entity;
 
 
 import lombok.Getter;

@@ -1,7 +1,9 @@
-package br.com.emodulo.customer.infra;
+package br.com.emodulo.customer.adapter.out.database;
 
-import br.com.emodulo.customer.domain.entity.Customer;
-import br.com.emodulo.customer.domain.repository.ICustomerDatabaseAdapter;
+import br.com.emodulo.customer.adapter.out.database.repository.CustomerRepository;
+import br.com.emodulo.customer.domain.model.Customer;
+import br.com.emodulo.customer.port.out.CustomerRepositoryPort;
+import br.com.emodulo.customer.adapter.out.database.entity.CustomerEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +11,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class CustomerDatabaseAdapter implements ICustomerDatabaseAdapter {
+public class CustomerRepositoryAdapter implements CustomerRepositoryPort {
 
     private final CustomerRepository repository;
 

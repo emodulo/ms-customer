@@ -1,17 +1,17 @@
-package br.com.emodulo.customer.application.usecase;
+package br.com.emodulo.customer.application.service;
 
-import br.com.emodulo.customer.domain.entity.Customer;
-import br.com.emodulo.customer.domain.exception.CustomerDocumentAlreadyExists;
-import br.com.emodulo.customer.domain.repository.ICustomerDatabaseAdapter;
-import br.com.emodulo.customer.domain.usecase.IAddCustomerUseCase;
+import br.com.emodulo.customer.domain.model.Customer;
+import br.com.emodulo.customer.exception.CustomerDocumentAlreadyExists;
+import br.com.emodulo.customer.port.out.CustomerRepositoryPort;
+import br.com.emodulo.customer.port.in.AddCustomerUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class AddCustomerUseCase implements IAddCustomerUseCase {
+public class AddCustomerService implements AddCustomerUseCase {
 
-    private final ICustomerDatabaseAdapter database;
+    private final CustomerRepositoryPort database;
 
     @Override
     public Customer execute(Customer customer) throws CustomerDocumentAlreadyExists {

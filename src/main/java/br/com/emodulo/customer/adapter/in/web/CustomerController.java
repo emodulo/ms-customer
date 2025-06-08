@@ -1,9 +1,8 @@
-package br.com.emodulo.customer.application.controller;
+package br.com.emodulo.customer.adapter.in.web;
 
 
-import br.com.emodulo.customer.application.dto.CustomerDTO;
-import br.com.emodulo.customer.domain.entity.Customer;
-import br.com.emodulo.customer.domain.usecase.IAddCustomerUseCase;
+import br.com.emodulo.customer.domain.model.Customer;
+import br.com.emodulo.customer.port.in.AddCustomerUseCase;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/customer")
 public class CustomerController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    private final IAddCustomerUseCase addCustomer;
+    private final AddCustomerUseCase addCustomer;
 
     @PostMapping(produces = "application/json")
     public ResponseEntity addCustomer(@RequestBody CustomerDTO customerDto) {

@@ -1,6 +1,6 @@
-package br.com.emodulo.customer.application.dto;
+package br.com.emodulo.customer.adapter.in.web;
 
-import br.com.emodulo.customer.domain.entity.Customer;
+import br.com.emodulo.customer.domain.model.Customer;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
