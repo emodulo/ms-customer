@@ -3,24 +3,22 @@ package br.com.emodulo.customer.infra;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.MongoId;
-
-import java.util.UUID;
 
 @Getter
 @Setter
-@Document(collection = "customer")
+@Document(collection = "customers")
 public class CustomerEntity {
 
-    @MongoId()
-    private UUID id;
+    @Id()
+    private String id;
     private String name;
     private String document;
 
-    public CustomerEntity(UUID id, String name, String document) {
+    public CustomerEntity(String id, String name, String document) {
         this.id = id;
         this.name = name;
-        document = document;
+        this.document = document;
     }
 }

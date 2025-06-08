@@ -5,7 +5,7 @@ spring:
     name: ${APP_NAME}
   data:
     mongodb:
-      authentication-database: ${MONGO_HOST}
+      authentication-database: ${MONGO_AUTH_DB}
       auto-index-creation: ${MONGO_AUTO_INDEX}
       host: ${MONGO_HOST}
       port: ${MONGO_PORT}
