@@ -5,20 +5,31 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Getter
 @Setter
 @Document(collection = "customers")
 public class CustomerEntity {
 
-    @Id()
+    @Id
     private String id;
+
+    @Field("name")
     private String name;
+
+    @Field("document")
     private String document;
 
-    public CustomerEntity(String id, String name, String document) {
-        this.id = id;
-        this.name = name;
-        this.document = document;
-    }
+    @Field("email")
+    private String email;
+
+    @Field("auth_provider")
+    private String authProvider;
+
+    @Field("external_id")
+    private String externalId;
+
+    @Field("address")
+    private AddressEmbeddable address;
 }

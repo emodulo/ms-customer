@@ -6,7 +6,8 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface CustomerRepository extends MongoRepository<CustomerEntity, String> {
-    Optional<CustomerEntity> findByDocument(String document);
+public interface CustomerJpaRepository extends MongoRepository<CustomerEntity, String> {
+    Optional<CustomerEntity> findByExternalId(String externalId);
+    Optional<CustomerEntity> findByDocument(String externalId);
 
 }

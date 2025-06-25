@@ -12,6 +12,11 @@ spring:
       database: ${MONGO_DATABASE}
       username: ${MONGO_USERNAME}
       password: ${MONGO_PASSWORD}
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://cognito-idp.us-east-1.amazonaws.com/us-east-1_axA27LFM2
 server:
   port: ${APP_PORT}
 

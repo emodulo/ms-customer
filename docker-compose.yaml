@@ -15,7 +15,7 @@ services:
 
   mongo-db:
     image: mongo:6.0
-    container_name: ms-customer-db
+    container_name: db-customer
     ports:
       - 27017:27017
     env_file:
