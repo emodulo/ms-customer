@@ -7,6 +7,9 @@ import br.com.emodulo.customer.adapter.in.api.mapper.CustomerDtoMapper;
 import br.com.emodulo.customer.domain.model.Customer;
 import br.com.emodulo.customer.exception.CustomerDocumentAlreadyExists;
 import br.com.emodulo.customer.port.in.CustomerUseCasePort;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,6 +18,8 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
+@Tag(name = "Clientes", description = "Operações com clientes")
+@SecurityRequirement(name = "bearerAuth")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/customer")
@@ -24,6 +29,7 @@ public class CustomerController {
     private final CustomerDtoMapper mapper;
 
     @PostMapping()
+    @Operation(summary = "Cadastrar cliente", description = "cadastrar novo cliente autenticado.")
     public ResponseEntity<?> addCustomer(@RequestBody CustomerRequestDTO dto, @AuthenticationPrincipal Jwt jwt) throws CustomerDocumentAlreadyExists {
         try {
             Customer customer = mapper.toDomain(dto, jwt);
@@ -38,6 +44,7 @@ public class CustomerController {
     }
 
     @PutMapping("/{id}")
+    @Operation(summary = "Atualizar cliente", description = "atualizar cliente autenticado.")
     public ResponseEntity<?> updateCustomer(@PathVariable String id,
                                             @RequestBody @Valid CustomerRequestDTO dto,
                                             @AuthenticationPrincipal Jwt jwt) {
@@ -61,6 +68,7 @@ public class CustomerController {
     }
 
     @DeleteMapping("/{id}")
+    @Operation(summary = "Excluir cliente", description = "excluir cliente autenticado.")
     public ResponseEntity<?> deleteCustomer(@PathVariable String id,
                                             @AuthenticationPrincipal Jwt jwt) {
         Customer existing = service.findById(id);
@@ -77,6 +85,7 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
+    @Operation(summary = "Recuperar cliente", description = "recuperar cliente autenticado.")
     public ResponseEntity<?> getCustomerById(@PathVariable String id,
                                              @AuthenticationPrincipal Jwt jwt) {
         Customer customer = service.findById(id);
@@ -92,6 +101,7 @@ public class CustomerController {
     }
 
     @GetMapping
+    @Operation(summary = "Recuperar cliente", description = "recuperar cliente autenticado.")
     public ResponseEntity<?> getOwnCustomer(@AuthenticationPrincipal Jwt jwt) {
         Customer customer = service.findByExternalId(jwt.getSubject());
         if (customer == null) {

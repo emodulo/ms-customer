@@ -16,9 +16,17 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: https://cognito-idp.us-east-1.amazonaws.com/us-east-1_axA27LFM2
+          issuer-uri: ${PROVIDER_ISSUER_URI}
 server:
   port: ${APP_PORT}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui/index.html
+    enabled: true
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
 
 
 
