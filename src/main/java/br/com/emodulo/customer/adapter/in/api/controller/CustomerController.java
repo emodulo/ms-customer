@@ -1,6 +1,7 @@
 package br.com.emodulo.customer.adapter.in.api.controller;
 
 
+import br.com.emodulo.customer.adapter.in.api.config.ApiVersion;
 import br.com.emodulo.customer.adapter.in.api.dto.CustomerRequestDTO;
 import br.com.emodulo.customer.adapter.in.api.mapper.CustomerDtoMapper;
 import br.com.emodulo.customer.domain.model.Customer;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Clientes", description = "Operações com clientes")
 @SecurityRequirement(name = "bearerAuth")
 @RestController
-@RequestMapping("/api/customer")
+@RequestMapping(ApiVersion.V1 + "/customers")
 public class CustomerController {
 
     private final CustomerUseCasePort service;
