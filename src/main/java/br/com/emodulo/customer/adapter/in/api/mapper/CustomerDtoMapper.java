@@ -6,16 +6,17 @@ import br.com.emodulo.customer.adapter.in.api.dto.CustomerResponseDTO;
 import br.com.emodulo.customer.domain.model.Address;
 import br.com.emodulo.customer.domain.model.Customer;
 import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CustomerDtoMapper {
 
     public Customer toDomain(CustomerRequestDTO dto, Jwt jwt) {
         if (dto == null) return null;
 
         Customer customer = new Customer();
-        customer.setId(dto.getId());
         customer.setExternalId(jwt.getSubject());
-        customer.setEmail(jwt.getClaim("email"));
+        customer.setEmail(dto.getEmail());
         customer.setName(dto.getName());
         customer.setDocument(dto.getDocument());
         customer.setAuthProvider("cognito");
@@ -42,6 +43,7 @@ public class CustomerDtoMapper {
         dto.setDocument(domain.getDocument());
         dto.setEmail(domain.getEmail());
         dto.setExternalId(domain.getExternalId());
+        dto.setAuthProvider(domain.getAuthProvider());
 
         if (domain.getAddress() != null) {
             AddressDTO addressDto = new AddressDTO();

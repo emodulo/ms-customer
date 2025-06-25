@@ -8,14 +8,19 @@ import br.com.emodulo.customer.adapter.out.database.entity.CustomerEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class CustomerDatabaseAdapter implements CustomerRepositoryPort {
 
     private final CustomerJpaRepository repository;
     private final CustomerEntityMapper mapper;
+
+    public CustomerDatabaseAdapter(CustomerJpaRepository repository, CustomerEntityMapper mapper) {
+        this.repository = repository;
+        this.mapper = mapper;
+    }
 
     @Override
     public Customer save(Customer customer) {
@@ -47,10 +52,10 @@ public class CustomerDatabaseAdapter implements CustomerRepositoryPort {
     }
 
     @Override
-    public Customer findByDocument(String document) {
-        return repository.findByDocument(document)
-                .map(mapper::toDomain)
-                .orElse(null);
+    public List<Customer> findByEmailOrDocumentAndIdNot(String id, String email, String document) {
+        return repository.findByEmailOrDocumentAndIdNot( id, email, document)
+                .stream()
+                .map(mapper::toDomain).toList();
     }
 
     @Override
@@ -58,5 +63,10 @@ public class CustomerDatabaseAdapter implements CustomerRepositoryPort {
         return repository.findByExternalId(externalId)
                 .map(mapper::toDomain)
                 .orElse(null);
+    }
+
+    @Override
+    public boolean existsByEmailOrDocument(String email, String document) {
+        return repository.existsByEmailOrDocument(email, document);
     }
 }

@@ -1,5 +1,6 @@
 package br.com.emodulo.customer.adapter.out.database.entity;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Field;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,7 +8,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 public class AddressEmbeddable {
 
     @Field("street")

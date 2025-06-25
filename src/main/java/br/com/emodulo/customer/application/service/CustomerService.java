@@ -1,30 +1,46 @@
 package br.com.emodulo.customer.application.service;
 
 import br.com.emodulo.customer.domain.model.Customer;
-import br.com.emodulo.customer.exception.CustomerDocumentAlreadyExists;
+import br.com.emodulo.customer.exception.CustomerAlreadyExists;
 import br.com.emodulo.customer.port.out.CustomerRepositoryPort;
 import br.com.emodulo.customer.port.in.CustomerUseCasePort;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-@RequiredArgsConstructor
 public class CustomerService implements CustomerUseCasePort {
 
     private final CustomerRepositoryPort repository;
 
+    public CustomerService(CustomerRepositoryPort repository) {
+        this.repository = repository;
+    }
+
     @Override
-    public Customer create(Customer customer) throws CustomerDocumentAlreadyExists {
-        Customer existing = repository.findByDocument(customer.getDocument());
-        if (existing != null) {
-            throw new CustomerDocumentAlreadyExists("Cliente já cadastrado com este documento");
+    public Customer create(Customer customer) throws CustomerAlreadyExists {
+
+        boolean existing = repository.existsByEmailOrDocument(customer.getEmail(), customer.getDocument());
+
+        if (existing) {
+            throw new CustomerAlreadyExists("Cliente já cadastrado.");
         }
+
         return repository.save(customer);
     }
 
     @Override
-    public Customer update(Customer customer) {
-        // Você pode adicionar validações aqui (ex: garantir que externalId seja o mesmo)
+    public Customer update(Customer customer) throws CustomerAlreadyExists {
+
+        List<Customer> existing = repository.findByEmailOrDocumentAndIdNot(
+                customer.getId(),
+                customer.getEmail(),
+                customer.getDocument());
+
+        if (!existing.isEmpty()) {
+            throw new CustomerAlreadyExists("Email ou documento já está sendo usado por outro cliente.");
+        }
+
         return repository.update(customer);
     }
 
@@ -36,11 +52,6 @@ public class CustomerService implements CustomerUseCasePort {
     @Override
     public Customer findById(String id) {
         return repository.findById(id);
-    }
-
-    @Override
-    public Customer findByDocument(String document) {
-        return repository.findByDocument(document);
     }
 
     @Override

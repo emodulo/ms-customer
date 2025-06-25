@@ -1,18 +1,16 @@
 package br.com.emodulo.customer.port.in;
 
 import br.com.emodulo.customer.domain.model.Customer;
-import br.com.emodulo.customer.exception.CustomerDocumentAlreadyExists;
+import br.com.emodulo.customer.exception.CustomerAlreadyExists;
 
 public interface CustomerUseCasePort {
-    Customer create(Customer customer) throws CustomerDocumentAlreadyExists;
+    Customer create(Customer customer) throws CustomerAlreadyExists;
 
-    Customer update(Customer customer);
+    Customer update(Customer customer) throws CustomerAlreadyExists;
 
     void delete(String id);
 
     Customer findById(String id);
-
-    Customer findByDocument(String document);
 
     Customer findByExternalId(String externalId);
 }

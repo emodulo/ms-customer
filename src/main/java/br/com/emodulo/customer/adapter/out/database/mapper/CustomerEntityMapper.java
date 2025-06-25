@@ -4,7 +4,9 @@ import br.com.emodulo.customer.adapter.out.database.entity.AddressEmbeddable;
 import br.com.emodulo.customer.adapter.out.database.entity.CustomerEntity;
 import br.com.emodulo.customer.domain.model.Address;
 import br.com.emodulo.customer.domain.model.Customer;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CustomerEntityMapper {
     public CustomerEntity toEntity(Customer domain) {
         if (domain == null) return null;
