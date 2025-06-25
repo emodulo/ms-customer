@@ -24,4 +24,15 @@ public class AddressEmbeddable {
 
     @Field("zip")
     private String zip;
+
+    public AddressEmbeddable() {
+    }
+
+    public AddressEmbeddable(String street, String number, String city, String state, String zip) {
+        this.street = street;
+        this.number = number;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+    }
 }

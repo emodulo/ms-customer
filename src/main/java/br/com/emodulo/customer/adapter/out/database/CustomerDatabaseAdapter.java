@@ -5,7 +5,6 @@ import br.com.emodulo.customer.adapter.out.database.repository.CustomerJpaReposi
 import br.com.emodulo.customer.domain.model.Customer;
 import br.com.emodulo.customer.port.out.CustomerRepositoryPort;
 import br.com.emodulo.customer.adapter.out.database.entity.CustomerEntity;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

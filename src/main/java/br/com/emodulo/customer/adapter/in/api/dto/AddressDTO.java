@@ -20,4 +20,15 @@ public class AddressDTO {
 
     @NotBlank(message = "Zip do cliente não pode ser vazio")
     private String zip;
+
+    public AddressDTO() {
+    }
+
+    public AddressDTO(String street, String number, String city, String state, String zip) {
+        this.street = street;
+        this.number = number;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+    }
 }
