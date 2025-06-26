@@ -22,7 +22,7 @@ server:
 
 springdoc:
   swagger-ui:
-    path: /swagger-ui/index.html
+    path: /index.html
     enabled: false
   api-docs:
     enabled: false
