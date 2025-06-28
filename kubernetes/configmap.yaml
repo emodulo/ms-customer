@@ -6,7 +6,7 @@ metadata:
 data:
   APP_NAME: "ms-customer"
   APP_PORT: "8080"
-  SPRING_PROFILES_ACTIVE: "dev"
+  SHOW_SWAGGER: "true"
   MONGO_AUTH_DB: "admin"
   MONGO_AUTO_INDEX: "true"
   MONGO_HOST: "mongodb-service"

@@ -23,9 +23,9 @@ server:
 springdoc:
   swagger-ui:
     path: /index.html
-    enabled: true
+    enabled: ${SHOW_SWAGGER}
   api-docs:
-    enabled: true
+    enabled: ${SHOW_SWAGGER}
     path: /v3/api-docs
 
 
