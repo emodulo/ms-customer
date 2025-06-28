@@ -4,9 +4,14 @@ metadata:
   name: ms-customer-config
   namespace: default
 data:
-  APP_NAME: ms-customer
+  APP_NAME: "ms-customer"
   APP_PORT: "8080"
-  SPRING_PROFILES_ACTIVE: dev
-  MONGO_HOST: mongodb://mongo:27017
-  MONGO_DATABASE: emodulo
-  PROVIDER_ISSUER_URI: https://cognito-idp.us-east-1.amazonaws.com/us-east-1_axA27LFM2
+  SPRING_PROFILES_ACTIVE: "dev"
+  MONGO_AUTH_DB: "admin"
+  MONGO_AUTO_INDEX: "true"
+  MONGO_HOST: "mongodb-service"
+  MONGO_PORT: "27017"
+  MONGO_DATABASE: "emodulo"
+  MONGO_USERNAME: "mongo"
+  MONGO_PASSWORD: "mongo"
+  PROVIDER_ISSUER_URI: "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_axA27LFM2"
