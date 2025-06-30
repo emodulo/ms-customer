@@ -38,7 +38,7 @@ jobs:
 
       - name: Obter credenciais do EKS
         run: |
-          aws eks update-kubeconfig --name ${{ secrets.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
+          aws eks update-kubeconfig --name ${{ secrets.EKS_CLUSTER_NAME_PRD }} --region ${{ secrets.AWS_REGION }}
 
       - name: Aplicar manifests do Kubernetes
         run: kubectl apply -f kubernetes/
